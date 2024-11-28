@@ -77,49 +77,51 @@
 
 
 
-function getDataFromServer1() {
-    return new Promise((resolve) => {
-        console.log("Fetching data from server 1...");
-        setTimeout(() => {
-            const data = {name: "Varun", age: 24};
-            console.log("Data from server 1:", data);
-            resolve(data);
-        }, 1500);
-    });
-}
+// function getDataFromServer1() {
+//     return new Promise((resolve) => {
+//         console.log("Fetching data from server 1...");
+//         setTimeout(() => {
+//             const data = {name: "Varun", age: 24};
+//             console.log("Data from server 1:", data);
+//             resolve(data);
+//         }, 1500);
+//     });
+// }
 
-function getDataFromServer2() {
-    return new Promise((resolve) => {
-        console.log("Fetching data from server 2...");
-        setTimeout(() => {
-            const data = {name: "Swechha", age: 23};
-            console.log("Data from server 2:", data);
-            resolve(data);
-        }, 2000);
-    });
-}
+// function getDataFromServer2() {
+//     return new Promise((resolve) => {
+//         console.log("Fetching data from server 2...");
+//         setTimeout(() => {
+//             const data = {name: "Swechha", age: 23};
+//             console.log("Data from server 2:", data);
+//             resolve(data);
+//         }, 2000);
+//     });
+// }
 
-function processData(data) {
-    return new Promise((resolve) => {
-        console.log("Processing data...");
-        setTimeout(() => {
-            const processedData = {...data, status: true};
-            console.log("Processed data:", processedData);
-            resolve(processedData);
-        }, 2000);
-    });
-}
+// function processData(data) {
+//     return new Promise((resolve) => {
+//         console.log("Processing data...");
+//         setTimeout(() => {
+//             const processedData = {...data, status: true};
+//             console.log("Processed data:", processedData);
+//             resolve(processedData);
+//         }, 2000);
+//     });
+// }
 
-// Using Promise.all to fetch data from both servers in parallel
-Promise.all([getDataFromServer1(), getDataFromServer2()])
-    .then((results) => {
-        // Both results are available here
-        console.log("Both data fetched:", results);
-        return Promise.all([processData(results[0]), processData(results[1])]);  // Process both in parallel
-    })
-    .then((processedResults) => {
-        console.log("Both data processed:", processedResults);
-    })
-    .catch((error) => {
-        console.error("An error occurred:", error);
-    });
+// // Using Promise.all to fetch data from both servers in parallel
+// Promise.all([getDataFromServer1(), getDataFromServer2()])
+//     .then((results) => {
+//         // Both results are available here
+//         console.log("Both data fetched:", results);
+//         return Promise.all([processData(results[0]), processData(results[1])]);  // Process both in parallel
+//     })
+//     .then((processedResults) => {
+//         console.log("Both data processed:", processedResults);
+//     })
+//     .catch((error) => {
+//         console.error("An error occurred:", error);
+//     });
+
+
