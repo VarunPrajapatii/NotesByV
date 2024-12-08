@@ -1,0 +1,23 @@
+one.html
+
+DOM is document object model. Jo hamara document/html banta hai voh objects se he toh banta hai. objects like head, body etc..
+Browser ke inspect pe jaake agar console.log(window) kare toh aapko bhhout bada window object dikh jaega.
+Isme ek document hota hai. usey aap console.dir(document) karke bhi dekh sakte hai.
+When you do console.log(document) then you will see document detail, usi ka use karenge hum sabse zyada.
+Phir humne tree ke form mein banaya document object model.
+HTML collections, NODE collections aur arrays ye sab alag alag cheezein hai, inko array mein convert kiya jaa sakta hai, 
+par ye by default array nahi hai.
+
+See querySelectorAll aapko NodeList deta hai jo ko array jaisa hota hai jaise inspect mein uske prototypes dekhoge toh forEach dikhega par, map and aur 
+bhi dher saare array ke prototypes nahi dikhega. Toh agar map use karna ho toh NodeList ko array mein convert kar sakte then use kar sakte.
+
+Abb agar aap getElementByClassName ke result dekhoge toh voh HTMLCollection dega, which is again different than array.
+
+To convert let say we have HTMLCollection in tempClassList variable. To convert, we have a method in Array class, with that we can convert it in array.
+Array.from("tempClassList)
+
+
+
+two.html
+
+elements ke children ko hum .children karke nikal sakte. notes are in main files there, as there is script used.

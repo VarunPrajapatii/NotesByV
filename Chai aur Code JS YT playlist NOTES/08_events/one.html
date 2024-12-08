@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // document.getElementById('owl').onclick = function(){
+    //     alert("owl clicked")
+    // }                //onclick mein bhhout zyada information nahi milti hai toh hame eventListeners use karne chahiye. voh hame onclick functionality ke alawa 
+                        //propogation ki ability bhi dete hai. toh onclick features kam deta hai.
+
+     // attachEvent()       //ye pehle use kiya jaata tha
+    // jQuery - on          //on event pehle jQuery mein use hua karta tha
+
+
+    //function ek event object leta hai, it has a lot of functionalities and options. some of them you need to know are:-
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    // document.getElementById('images').addEventListener('click', function(e){     
+    //     console.log("clicked inside the ul");
+    // }, false)
+    
+    // document.getElementById('owl').addEventListener('click', function(e){
+        //     console.log("owl clicked");
+        //     e.stopPropagation()
+    // }, false)
+    /*ek third parameter bhi hota hai. default false he hota hai par. Abb ye event Propogation hai kya, ek hota hai event bubbling aur ek hota hai event capturing, 
+    default false hota hai usko bolte event bubbling. Now we have ul and in that li in that images... now we attach click event listener with owl and images, 
+    when we click the owl image then we see in console that owl printed then ul, when it was default false. toh event bubbling neeche se upar jaata hai, pehle 
+    img phir li phir ul, par agar isko true kar dete toh voh capturing mode hota hai, toh pehle ul aayyega console pe then owl.
+    And the event object have a method called stopPropogation, toh issey event bubble hoke uppar ke event pe nahi jaega.
+    */
+
+    //toh agar lets say huumne google ki ek link daali hai aur uspe click karke hum nahi chahte ki google ki website open ho toh hum e.preventDefault() use kar sakte hai.
+    
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     e.stopPropagation()
+    //     console.log("google clicked");
+    // }, false)
+   
+    
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {       //ye check isiliye laga rahe kyuki agar humne li pe click kiya toh uska parent yaani poora ul remove ho jaata hai
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()       //remove method naya hai toh neeche wala tareeka pehle kaafi use hota tha
+        }
+    
+        
+    })
+    
+    //removeIt.parentNode.removeChild(removeIt)
+</script>
+</html>
